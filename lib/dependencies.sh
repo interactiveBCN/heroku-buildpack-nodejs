@@ -13,6 +13,7 @@ install_node_modules() {
     echo "Pep is installing!"
     errormessage=$(npm install --unsafe-perm --userconfig 2>&1)
     echo $errormessage
+    echo "DONE"
     
   else
     echo "Skipping (no package.json)"

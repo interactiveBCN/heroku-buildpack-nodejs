@@ -15,6 +15,7 @@ install_node_modules() {
     npm install 2>&1 | tee $TMP
     OUTPUT=$(cat $TMP)
     echo $OUTPUT
+    rm $TMP
     
   else
     echo "Skipping (no package.json)"

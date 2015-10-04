@@ -11,8 +11,10 @@ install_node_modules() {
       echo "Installing node modules (package.json)"
     fi
     echo "Pep is installing!"
-    errormessage=$( npm install 2>&1 )
-    echo $errormessage
+    TMP=$(mktemp)
+    npm install 2>&1 | tee $TMP
+    OUTPUT=$(cat $TMP)
+    echo $OUTPUT
     
   else
     echo "Skipping (no package.json)"

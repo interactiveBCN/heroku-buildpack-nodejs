@@ -11,9 +11,11 @@ install_node_modules() {
       echo "Installing node modules (package.json)"
     fi
     echo "Pep is installing!"
-    errormessage=$(npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1)
-    echo $errormessage
-    echo "DONE"
+    if npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1; then
+      echo "DONE"
+    else
+      echo "ERROR"
+    fi
     
   else
     echo "Skipping (no package.json)"

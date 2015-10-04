@@ -12,7 +12,7 @@ install_node_modules() {
     fi
     echo "Pep is installing!"
     TMP=$(mktemp)
-    npm install 2>&1 | tee $TMP
+    npm install --unsafe-perm --userconfig 2>&1 | tee $TMP
     OUTPUT=$(cat $TMP)
     echo $OUTPUT
     rm $TMP
